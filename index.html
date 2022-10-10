@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>RockPaperScissors</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="dist/css/style.min.css" />
+		<script
+			src="https://kit.fontawesome.com/fe5dae04ab.js"
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+		<header class="header">
+			<div class="counter">
+				<p class="counter__tittle">Rock Paper Scissors</p>
+				<div class="counter__box">
+					<div class="counter__win">Win: 0</div>
+					<div class="counter__lose">Lose: 0</div>
+					<div class="counter__draw">Draw: 0</div>
+				</div>
+			</div>
+		</header>
+		<main class="main">
+			<!-- <h2 class="main__title">Which one you will choose?</h2> -->
+			<div class="game__board">
+				<button
+					class="game__item game__item-player rock"
+					data-pick="rock"
+				></button>
+				<button
+					class="game__item game__item-player paper"
+					data-pick="paper"
+				></button>
+				<button
+					class="game__item game__item-player scissors"
+					data-pick="scissors"
+				></button>
+			</div>
+			<div class="result">
+				<div class="result__text">
+				
+					<p>You choiced</p>
+					<p>Computer choiced</p>
+				</div>
+				<div class="box__result">
+					<div class="box__play">
+						<button
+							class="game__item game__item-player paper"
+							data-pick="paper"
+						></button>
+					</div>
+					<h2 class="main__title">VS</h2>
+					<div class="box__ai">
+						<button
+							class="game__item game__item-player paper"
+							data-pick="paper"
+						></button>
+					</div>
+				</div>
+				<p class="box__game-result-text"></p>
+				<button class="box__game-btn">Try Again</button>
+			</div>
+		</main>
+
+		<script src="dist/js/main.min.js"></script>
+	</body>
+</html>

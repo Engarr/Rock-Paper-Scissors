@@ -1,0 +1,51 @@
+@keyframes hide-buttons {
+	from {
+		transform: scale(0.9);
+		display: block;
+	}
+	to {
+		transform: scale(0);
+		display: none;
+	}
+}
+@keyframes show-buttons {
+	from {
+		transform: scale(0);
+		display: none;
+	}
+	to {
+		transform: scale(1);
+		display: block;
+	}
+}
+
+@keyframes lose-animation {
+	from {
+		box-shadow: 0 0 5px rgb(179, 178, 176);
+		transform: scale(0);
+	}
+	to {
+		box-shadow: 0 0 30px rgb(223, 26, 12);
+		transform: scale(1);
+	}
+}
+@keyframes win-animation {
+	from {
+		box-shadow: 0 0 5px rgb(179, 178, 176);
+		transform: scale(0);
+	}
+	to {
+		box-shadow: 0 0 30px rgb(54, 223, 12);
+		transform: scale(1);
+	}
+}
+@keyframes draw-animation {
+	from {
+		box-shadow: 0 0 5px rgb(179, 178, 176);
+		transform: scale(0);
+	}
+	to {
+		box-shadow: 0 0 30px rgba(235, 235, 1, 0.486);
+		transform: scale(1);
+	}
+}
