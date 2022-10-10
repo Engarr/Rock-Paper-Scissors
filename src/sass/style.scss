@@ -7,7 +7,7 @@
 }
 body {
 	height: 100vh;
-	background-color: #333;
+	background-image: linear-gradient(315deg, #404041 10%, #333 74%);
 }
 
 .header,
@@ -17,7 +17,6 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	
 }
 
 .header {
@@ -28,7 +27,6 @@ body {
 	&__win,
 	&__lose,
 	&__draw {
-		
 		color: rgb(247, 247, 247);
 		margin: 5px 20px;
 		padding: 5px 10px;
@@ -104,7 +102,7 @@ body {
 	&__item-player:hover {
 		border: 1px solid $box-shadow-hover;
 		box-shadow: 0 0 5px $box-shadow-hover;
-		transform: scale(0.9);
+		// transform: scale(0.9);
 	}
 }
 .result {
@@ -119,13 +117,13 @@ body {
 	&__text {
 		display: flex;
 		width: 100%;
-		
+
 		color: $text-color;
 		p {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			
+
 			width: 100%;
 			text-transform: uppercase;
 		}
@@ -136,6 +134,7 @@ body {
 		display: flex;
 		justify-content: center;
 		align-self: center;
+		height: 200px;
 		width: 100%;
 	}
 	&__game-result-text {
