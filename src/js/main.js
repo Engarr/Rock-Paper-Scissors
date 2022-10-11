@@ -49,8 +49,7 @@ const battle = () => {
 	result.style.display = 'flex';
 
 	if (newPlayerPick === newAiPick) {
-		playerWeapon.classList.add('rotate-draw-animation');
-
+		playerWeapon.classList.add('player-draw-animation');
 		aiWeapon.classList.add('rotate-draw-animation');
 		gameResult.classList.add('show-result-animation');
 		gameResult.textContent = 'Draw';
@@ -59,7 +58,7 @@ const battle = () => {
 			draw.textContent = `Draw: ${drawCount}`;
 		}, 1500);
 	} else if (winMap[`${newPlayerPick}`] == newAiPick) {
-		playerWeapon.classList.add('rotate-win-animation');
+		playerWeapon.classList.add('player-win-animation');
 		aiWeapon.classList.add('rotate-lose-animation');
 		gameResult.classList.add('show-result-animation');
 		gameResult.textContent = 'You win!';
@@ -68,7 +67,7 @@ const battle = () => {
 			win.textContent = `Win: ${winCount}`;
 		}, 1500);
 	} else {
-		playerWeapon.classList.add('rotate-lose-animation');
+		playerWeapon.classList.add('player-lose-animation');
 		aiWeapon.classList.add('rotate-win-animation');
 		gameResult.classList.add('show-result-animation');
 		gameResult.textContent = 'You lose!';
@@ -96,8 +95,8 @@ const createPlayerChose = (newPlayerPick) => {
 };
 
 const tryAgain = () => {
-	playerBox.innerHTML = '<p class="box__player-text">You choiced:</p>';
-	aiBox.innerHTML = '<p class="box__ai-text">Computer choiced:</p>';
+	playerBox.innerHTML = '<p class="box__player-text">You picked:</p>';
+	aiBox.innerHTML = '<p class="box__ai-text">Chosen by computer:</p>';
 	result.style.display = 'none';
 	gameResult.textContent = '';
 	gameButtons.forEach((btn) => btn.classList.remove('hide-buttons-animation'));

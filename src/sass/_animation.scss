@@ -51,6 +51,40 @@
 		box-shadow: 0 0 30px rgb(54, 223, 12);
 	}
 }
+
+@keyframes player-lose-animation {
+	from {
+		box-shadow: 0 0 5px rgb(179, 178, 176);
+		transform: scale(0) rotate(0);
+	}
+	to {
+		box-shadow: 0 0 30px rgb(223, 26, 12);
+		transform: scale(1) rotate(360);
+	}
+}
+@keyframes player-win-animation {
+	from {
+		box-shadow: 0 0 5px rgb(179, 178, 176);
+		transform: scale(0) rotate(0);
+	}
+	to {
+		box-shadow: 0 0 30px rgb(54, 223, 12);
+		transform: scale(1) rotate(360);
+	}
+}
+
+
+@keyframes player-draw-animation {
+	from {
+		box-shadow: 0 0 5px rgb(179, 178, 176);
+		transform: scale(0) rotate(0);
+	}
+	to {
+		box-shadow: 0 0 30px rgba(235, 235, 1, 0.486);
+
+		transform: scale(1) rotate(360);
+	}
+}
 @keyframes show-result-animation {
 	from {
 		display: none;
