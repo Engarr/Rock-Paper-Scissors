@@ -6,8 +6,9 @@
 	margin: 0;
 }
 body {
+	font-family: 'Montserrat', sans-serif;
 	height: 100vh;
-	background-image: linear-gradient(315deg, #404041 10%, #333 74%);
+	background: linear-gradient(to bottom, #bdc3c7, #2c3e50);
 }
 
 .header,
@@ -44,11 +45,12 @@ body {
 	}
 
 	flex-direction: column;
-	border-radius: 5px;
-	box-shadow: 0 0 10px $box-shadow;
+	border-radius: 20px;
+
+	background-color: rgba(51, 51, 51, 0.87);
 	margin-top: 1em;
 	height: 200px;
-	width: 80%;
+	width: 60%;
 	&__tittle {
 		text-transform: uppercase;
 		font-size: 1.6em;
@@ -72,7 +74,9 @@ body {
 	flex-direction: column;
 	&__title {
 		margin: 1em;
-		// text-transform: uppercase;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		color: $text-color;
 	}
 }
@@ -114,20 +118,6 @@ body {
 	justify-content: center;
 	align-items: center;
 	display: none;
-	&__text {
-		display: flex;
-		width: 100%;
-
-		color: $text-color;
-		p {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-
-			width: 100%;
-			text-transform: uppercase;
-		}
-	}
 }
 .box {
 	&__result {
@@ -135,7 +125,7 @@ body {
 		justify-content: center;
 		align-self: center;
 		height: 200px;
-		width: 100%;
+		width: 80%;
 	}
 	&__game-result-text {
 		text-transform: uppercase;
@@ -144,15 +134,18 @@ body {
 		font-size: 1.6rem;
 	}
 	&__game-btn {
+		// display: none;
 		padding: 20px 30px;
 		border-radius: 5px;
 		border: none;
 		background-color: rgba(255, 255, 255, 0.507);
-		transition: background-color 0.3s;
+		box-shadow: 0px 0px 120px $box-shadow;
 		cursor: pointer;
+		transition: background-color 0.3s, box-shadow 0.3s;
 	}
 	&__game-btn:hover {
 		background-color: rgba(255, 255, 255, 0.911);
+		box-shadow: 0px 0px 200px $box-shadow;
 	}
 	&__title {
 		color: $text-color;
@@ -163,6 +156,26 @@ body {
 		text-transform: uppercase;
 		width: 100%;
 		background-color: black;
+	}
+
+	&__player,
+	&__ai {
+		display: flex;
+		flex-direction: column;
+		// height: 300px;
+		width: 300px;
+		justify-content: center;
+		align-items: center;
+		text-transform: uppercase;
+		color: $text-color;
+	}
+
+	&__player-text,
+	&__ai-text {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 10px 20px;
 	}
 }
 .item {
@@ -184,9 +197,7 @@ body {
 .scissors {
 	background-image: url(../img/scissors.JPG);
 }
-// .hide{
-// 	display: none;
-// }
+
 .hide-buttons-animation {
 	animation: hide-buttons 0.3s forwards;
 }
@@ -194,12 +205,17 @@ body {
 	animation: show-buttons 0.5s forwards;
 }
 
-.draw-animation {
-	animation: draw-animation 0.5s forwards;
+.rotate-draw-animation {
+	animation: rotate-draw-animation 1s forwards;
 }
-.lose-animation {
-	animation: lose-animation 0.5s forwards;
+.rotate-lose-animation {
+	animation: rotate-lose-animation 1s forwards;
 }
-.win-animation {
-	animation: win-animation 0.5s forwards;
+
+.rotate-win-animation {
+	animation: rotate-win-animation 1s forwards;
+}
+
+.show-result-animation {
+	animation: show-result-animation 1s forwards;
 }

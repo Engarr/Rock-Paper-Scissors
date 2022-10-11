@@ -19,33 +19,45 @@
 	}
 }
 
-@keyframes lose-animation {
+@keyframes rotate-lose-animation {
 	from {
 		box-shadow: 0 0 5px rgb(179, 178, 176);
-		transform: scale(0);
+		transform: scale(0) rotateY(0) rotatey(0);
 	}
 	to {
 		box-shadow: 0 0 30px rgb(223, 26, 12);
-		transform: scale(1);
+		transform: scale(1) rotateX(3600deg) rotateY(360deg);
 	}
 }
-@keyframes win-animation {
+
+@keyframes rotate-draw-animation {
 	from {
 		box-shadow: 0 0 5px rgb(179, 178, 176);
-		transform: scale(0);
-	}
-	to {
-		box-shadow: 0 0 30px rgb(54, 223, 12);
-		transform: scale(1);
-	}
-}
-@keyframes draw-animation {
-	from {
-		box-shadow: 0 0 5px rgb(179, 178, 176);
-		transform: scale(0);
+		transform: scale(0) rotateY(0) rotatey(0);
 	}
 	to {
 		box-shadow: 0 0 30px rgba(235, 235, 1, 0.486);
+		transform: scale(1) rotateX(3600deg) rotateY(360deg);
+	}
+}
+@keyframes rotate-win-animation {
+	from {
+		transform: scale(0) rotateY(0) rotatey(0);
+
+		box-shadow: 0 0 5px rgb(179, 178, 176);
+	}
+	to {
+		transform: scale(1) rotateX(3600deg) rotateY(360deg);
+		box-shadow: 0 0 30px rgb(54, 223, 12);
+	}
+}
+@keyframes show-result-animation {
+	from {
+		display: none;
+		transform: scale(0);
+	}
+	to {
+		display: flex;
 		transform: scale(1);
 	}
 }
