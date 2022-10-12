@@ -9,25 +9,30 @@ const gameTitle = document.querySelector('.main__title');
 const win = document.querySelector('.counter__win');
 const lose = document.querySelector('.counter__lose');
 const draw = document.querySelector('.counter__draw');
-let winCount = 0;
-let drawCount = 0;
-let loseCount = 0;
+const clearBtn = document.querySelector('.delete');
+
+const winCountLSK = `winCount`;
+const drawCountLSK = `drawCount`;
+const loseCountLSK = `loseCount`;
+
+let state = {
+	winCount: Number(localStorage.getItem(winCountLSK)) || 0,
+	drawCount: Number(localStorage.getItem(drawCountLSK)) || 0,
+	loseCount: Number(localStorage.getItem(loseCountLSK)) || 0,
+};
+
 let newPlayerPick;
 let newAiPick;
 let playerWeapon;
 let aiWeapon;
+
 const itemsMap = ['rock', 'paper', 'scissors'];
 const winMap = {
 	paper: ['rock'],
 	scissors: ['paper'],
 	rock: ['scissors'],
 };
-let state = {
-	// playerWins: Number(localStorage.getItem(playerWinsLSKey)) || 0,
-	// AIWins: Number(localStorage.getItem(AIWinsLSKey)) || 0,
-	newPlayerPick: null,
-	newAiPick: null,
-};
+
 const pickAi = () => {
 	newAiPick = itemsMap[Math.floor(Math.random() * 3)];
 };
@@ -53,29 +58,37 @@ const battle = () => {
 		aiWeapon.classList.add('rotate-draw-animation');
 		gameResult.classList.add('show-result-animation');
 		gameResult.textContent = 'Draw';
-		drawCount++;
-		setTimeout(() => {
-			draw.textContent = `Draw: ${drawCount}`;
-		}, 1500);
+
+		localStorage.setItem(drawCountLSK, state.drawCount + 1);
+		state = {
+			...state,
+			drawCount: state.drawCount + 1,
+		};
 	} else if (winMap[`${newPlayerPick}`] == newAiPick) {
 		playerWeapon.classList.add('player-win-animation');
 		aiWeapon.classList.add('rotate-lose-animation');
 		gameResult.classList.add('show-result-animation');
 		gameResult.textContent = 'You win!';
-		winCount++;
-		setTimeout(() => {
-			win.textContent = `Win: ${winCount}`;
-		}, 1500);
+		localStorage.setItem(winCountLSK, state.winCount + 1);
+		state = {
+			...state,
+			winCount: state.winCount + 1,
+		};
 	} else {
 		playerWeapon.classList.add('player-lose-animation');
 		aiWeapon.classList.add('rotate-win-animation');
 		gameResult.classList.add('show-result-animation');
 		gameResult.textContent = 'You lose!';
-		loseCount++;
-		setTimeout(() => {
-			lose.textContent = `Lose: ${loseCount}`;
-		}, 1500);
+		localStorage.setItem(loseCountLSK, state.loseCount + 1);
+
+		state = {
+			...state,
+			loseCount: state.loseCount + 1,
+		};
 	}
+	setTimeout(() => {
+		showResult();
+	}, 1500);
 };
 
 const createAIChose = () => {
@@ -103,5 +116,17 @@ const tryAgain = () => {
 	gameButtons.forEach((btn) => btn.classList.add('show-buttons-animation'));
 };
 
+const showResult = () => {
+	win.textContent = `Win: ${state.winCount}`;
+	draw.textContent = `Draw: ${state.drawCount}`;
+	lose.textContent = `Lose: ${state.loseCount}`;
+};
+const clearStorage = () => {
+	localStorage.clear();
+	location.reload();
+};
+
+showResult();
 gameButtons.forEach((btn) => btn.addEventListener('click', play));
 retryBtn.addEventListener('click', tryAgain);
+clearBtn.addEventListener('click', clearStorage);
